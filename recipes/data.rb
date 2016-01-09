@@ -56,7 +56,7 @@ node[:wof_pip][:data][:metafiles].each do |f|
       ./bin/wof-clone-metafiles \
         -strict \
         -loglevel #{node[:wof_pip][:clone][:loglevel]} \
-        -dest #{node[:wof_pip][:data][:directory]} \
+        -dest #{node[:wof_pip][:data][:dir]} \
         #{node[:wof_pip][:data][:dir]}/#{f} >#{node[:wof_pip][:log][:dir]}/logs/pull_wof_data.log 2>&1
     EOF
     environment(
