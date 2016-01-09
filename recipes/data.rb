@@ -16,8 +16,8 @@ git "#{node[:wof_pip][:apps][:dir]}/whosonfirst-clone" do
   repository  node[:wof_pip][:clone][:repository]
   revision    node[:wof_pip][:clone][:revision]
   notifies    :run, 'execute[compile wof clone]', :immediately
-  retries     1
-  retry_delay 300
+  retries     2
+  retry_delay 60
 end
 
 execute 'compile wof clone' do
@@ -25,8 +25,8 @@ execute 'compile wof clone' do
   user        node[:wof_pip][:user][:name]
   cwd         "#{node[:wof_pip][:apps][:dir]}/whosonfirst-clone"
   command     'make deps && make bin'
-  retries     1
-  retry_delay 300
+  retries     2
+  retry_delay 60
   environment(
     'HOME'    => node[:wof_pip][:user][:home],
     'PATH'    => '/bin:/usr/bin:/sbin:/usr/bin:/usr/local/go/bin:/opt/go/bin',
@@ -36,21 +36,20 @@ execute 'compile wof clone' do
 end
 
 node[:wof_pip][:data][:metafiles].each do |f|
-  execute "retrieve meta file #{f}" do
-    user        node[:wof_pip][:user][:name]
-    cwd         node[:wof_pip][:data][:dir]
-    retries     1
-    retry_delay 300
-    command <<-EOF
-      curl -s -o #{f} #{node[:wof_pip][:data][:raw_url]}/#{f}
-    EOF
+  remote_file "#{node[:wof_pip][:data][:dir]}/#{f}" do
+    action      :create
+    backup      false
+    source      "#{node[:wof_pip][:data][:raw_url]}/#{f}"
+    owner       node[:wof_pip][:user][:name]
+    retries     2
+    retry_delay 60
   end
 
   execute "pull wof data for #{f}" do
     user        node[:wof_pip][:user][:name]
     cwd         "#{node[:wof_pip][:apps][:dir]}/whosonfirst-clone"
-    retries     1
-    retry_delay 300
+    retries     2
+    retry_delay 60
     timeout     node[:wof_pip][:data][:clone_timeout]
     command <<-EOF
       ./bin/wof-clone-metafiles \
