@@ -11,7 +11,7 @@ include_recipe 'wof_pip::setup'
 
 # wof pip server
 #
-git "#{node[:wof_pip][:apps][:dir]]}/wof-pip-server" do
+git "#{node[:wof_pip][:apps][:dir]}/wof-pip-server" do
   user        node[:wof_pip][:user][:name]
   repository  node[:wof_pip][:server][:repository]
   revision    node[:wof_pip][:server][:revision]
