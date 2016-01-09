@@ -13,8 +13,8 @@ include_recipe 'wof_pip::setup'
 #
 git "#{node[:wof_pip][:basedir]}/wof-pip-server" do
   user        node[:wof_pip][:user][:name]
-  repository  node[:wof_pip][:repository]
-  revision    node[:wof_pip][:revision]
+  repository  node[:wof_pip][:server][:repository]
+  revision    node[:wof_pip][:server][:revision]
   notifies    :run, 'execute[compile wof server]', :immediately
   retries     2
   retry_delay 30
