@@ -36,7 +36,6 @@ execute 'compile wof clone' do
 end
 
 node[:wof_pip][:data][:metafiles].each do |f|
-      Chef::Log.info("RUNNING THE FOLLOWING: ./bin/wof-clone-metafiles -strict -loglevel #{node[:wof_pip][:clone][:loglevel]} -dest #{node[:wof_pip][:data][:dir]} #{node[:wof_pip][:data][:dir]}/#{f} >#{node[:wof_pip][:log][:dir]}/logs/pull_wof_data.log 2>&1")
   execute "retrieve meta file #{f}" do
     user        node[:wof_pip][:user][:name]
     cwd         node[:wof_pip][:data][:dir]
@@ -54,7 +53,11 @@ node[:wof_pip][:data][:metafiles].each do |f|
     retry_delay 300
     timeout     node[:wof_pip][:data][:clone_timeout]
     command <<-EOF
-      ./bin/wof-clone-metafiles -strict -loglevel #{node[:wof_pip][:clone][:loglevel]} -dest #{node[:wof_pip][:data][:dir]} #{node[:wof_pip][:data][:dir]}/#{f} >#{node[:wof_pip][:log][:dir]}/logs/pull_wof_data.log 2>&1
+      ./bin/wof-clone-metafiles \
+        -strict \
+        -loglevel #{node[:wof_pip][:clone][:loglevel]} \
+        -dest #{node[:wof_pip][:data][:dir]} \
+        #{node[:wof_pip][:data][:dir]}/#{f} >#{node[:wof_pip][:log][:dir]}/logs/pull_wof_data.log 2>&1
     EOF
     environment(
       'HOME'    => node[:wof_pip][:user][:home],
