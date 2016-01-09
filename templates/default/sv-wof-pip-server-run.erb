@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cd <%= node[:mapzen_pelias][:worker][:basedir] %>/wof-pip-server
+exec 2>&1
+
+exec chpst -u <%= node[:mapzen_pelias][:user][:name] %> -e /etc/sv/wof-pip-server/env \
+./bin/wof-pip-server \
+  -strict \
+  -host <%= node[:mapzen_pelias][:wof][:pip][:bind] %> \
+  -port <%= node[:mapzen_pelias][:wof][:pip][:port] %> \
+  -cache_size <%= node[:mapzen_pelias][:wof][:pip][:cache] %> \
+  -data <%= node[:mapzen_pelias][:wof][:data][:directory] %> \
+  <% node[:mapzen_pelias][:wof][:data][:meta].each do |file| -%>
+    <%= node[:mapzen_pelias][:wof][:data][:directory] %>/<%= file %> <%= '\\' unless file == node[:mapzen_pelias][:wof][:data][:meta].last %>
+  <% end -%>
