@@ -75,8 +75,8 @@ end
 
 execute 'wait for wof service' do
   user        node[:wof_pip][:user][:name]
-  timeout     node[:wof_pip][:pip][:wait_time]
-  retries     node[:wof_pip][:pip][:wait_time]
+  timeout     node[:wof_pip][:server][:wait_time]
+  retries     node[:wof_pip][:server][:wait_time]
   retry_delay 1
   command <<-EOF
     curl -s -o /dev/null "http://#{node[:wof_pip][:server][:bind]}:#{node[:wof_pip][:server][:port]}?latitude=40.677524&longitude=-73.987343"
