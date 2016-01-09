@@ -1,5 +1,7 @@
 # setup
 #
+default[:go][:version] = 1.5
+
 default[:wof_pip][:user][:name]         = 'wof'
 default[:wof_pip][:user][:home]         = '/home/wof'
 default[:wof_pip][:user][:filehandles]  = 65_536
