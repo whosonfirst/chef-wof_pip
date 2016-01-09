@@ -53,12 +53,7 @@ node[:wof_pip][:data][:metafiles].each do |f|
     retry_delay 300
     timeout     node[:wof_pip][:data][:clone_timeout]
     command <<-EOF
-      ./bin/wof-clone-metafiles \
-        -strict \
-        -loglevel #{node[:wof_pip][:clone][:loglevel]} \
-        -dest #{node[:wof_pip][:data][:directory]} \
-        #{node[:wof_pip][:data][:dir]}/#{f} \
-        >#{node[:wof_pip][:log[:dir]}/logs/pull_wof_data.log 2>&1
+      ./bin/wof-clone-metafiles -loglevel #{node[:wof_pip][:clone][:loglevel]} -dest #{node[:wof_pip][:data][:directory]} #{node[:wof_pip][:data][:dir]}/#{f} >#{node[:wof_pip][:log[:dir]}/logs/pull_wof_data.log 2>&1
     EOF
     environment(
       'HOME'    => node[:wof_pip][:user][:home],
