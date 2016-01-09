@@ -54,6 +54,7 @@ node[:wof_pip][:data][:metafiles].each do |f|
     timeout     node[:wof_pip][:data][:clone_timeout]
     command <<-EOF
       ./bin/wof-clone-metafiles \
+        -strict \
         -loglevel #{node[:wof_pip][:clone][:loglevel]} \
         -dest #{node[:wof_pip][:data][:directory]} \
         #{node[:wof_pip][:data][:dir]}/#{f} \
