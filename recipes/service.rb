@@ -11,7 +11,7 @@ include_recipe 'wof_pip::setup'
 
 # wof pip server
 #
-git "#{node[:wof_pip][:basedir]}/wof-pip-server" do
+git "#{node[:wof_pip][:apps][:dir]]}/wof-pip-server" do
   user        node[:wof_pip][:user][:name]
   repository  node[:wof_pip][:server][:repository]
   revision    node[:wof_pip][:server][:revision]
@@ -23,7 +23,7 @@ end
 execute 'compile wof server' do
   action      :nothing
   user        node[:wof_pip][:user][:name]
-  cwd         "#{node[:wof_pip][:basedir]}/wof-pip-server"
+  cwd         "#{node[:wof_pip][:apps][:dir]}/wof-pip-server"
   command     'make deps && make bin'
   retries     2
   retry_delay 10
