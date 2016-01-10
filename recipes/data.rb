@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe 'wof_pip::setup'
+include_recipe 'wof_pip::_setup'
 
 # wof clone
 #
