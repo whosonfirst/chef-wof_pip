@@ -23,6 +23,7 @@ default[:wof_pip][:server][:wait_time]  = 900 # how long to wait pip server to b
 default[:wof_pip][:clone][:repository]  = 'https://github.com/whosonfirst/go-whosonfirst-clone.git'
 default[:wof_pip][:clone][:revision]    = 'master'
 default[:wof_pip][:clone][:loglevel]    = 'warn'
+default[:wof_pip][:clone][:procs]       = 200
 
 # wof data
 #
