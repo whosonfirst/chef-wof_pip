@@ -5,6 +5,7 @@ default[:go][:version] = 1.5
 default[:wof_pip][:user][:name]         = 'wof'
 default[:wof_pip][:user][:home]         = '/home/wof'
 default[:wof_pip][:user][:filehandles]  = 65_536
+default[:wof_pip][:meta][:dir]          = '/wof/meta'
 default[:wof_pip][:data][:dir]          = '/wof/data'
 default[:wof_pip][:apps][:dir]          = '/wof/apps'
 default[:wof_pip][:log][:dir]           = '/wof/logs'

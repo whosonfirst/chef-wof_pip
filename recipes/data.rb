@@ -36,7 +36,7 @@ execute 'compile wof clone' do
 end
 
 node[:wof_pip][:data][:metafiles].each do |f|
-  remote_file "#{node[:wof_pip][:data][:dir]}/#{f}" do
+  remote_file "#{node[:wof_pip][:meta][:dir]}/#{f}" do
     action      :create
     backup      false
     source      "#{node[:wof_pip][:data][:raw_url]}/#{f}"
@@ -56,7 +56,7 @@ node[:wof_pip][:data][:metafiles].each do |f|
         -procs #{node[:wof_pip][:clone][:procs]} \
         -loglevel #{node[:wof_pip][:clone][:loglevel]} \
         -dest #{node[:wof_pip][:data][:dir]} \
-        #{node[:wof_pip][:data][:dir]}/#{f} >#{node[:wof_pip][:log][:dir]}/pull_wof_data.log 2>&1
+        #{node[:wof_pip][:meta][:dir]}/#{f} >#{node[:wof_pip][:log][:dir]}/pull_wof_data.log 2>&1
     EOF
     environment(
       'HOME'    => node[:wof_pip][:user][:home],

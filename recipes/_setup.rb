@@ -26,6 +26,13 @@ user_ulimit node[:wof_pip][:user][:name] do
   filehandle_limit node[:wof_pip][:user][:filehandles]
 end
 
+directory node[:wof_pip][:meta][:dir] do
+  recursive true
+  owner     node[:wof_pip][:user][:name]
+  group     node[:wof_pip][:user][:name]
+  mode      0755
+end
+
 directory node[:wof_pip][:data][:dir] do
   recursive true
   owner     node[:wof_pip][:user][:name]
