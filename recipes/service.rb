@@ -15,7 +15,8 @@ git "#{node[:wof_pip][:apps][:dir]}/wof-pip-server" do
   user        node[:wof_pip][:user][:name]
   repository  node[:wof_pip][:server][:repository]
   revision    node[:wof_pip][:server][:revision]
-  notifies    :run, 'execute[compile wof server]', :immediately
+  notifies    :run,     'execute[compile wof server]',    :immediately
+  notifies    :restart, 'runit_service[wof-pip-server]',  :delayed
   retries     2
   retry_delay 30
 end
