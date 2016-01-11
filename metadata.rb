@@ -9,7 +9,6 @@ version          '0.1.0'
 %w(
   apt
   golang
-  mapzen_logstash
   user
   runit
   ulimit
