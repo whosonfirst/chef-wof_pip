@@ -17,7 +17,6 @@ default[:wof_pip][:server][:revision]   = 'master'
 default[:wof_pip][:server][:port]       = 9999
 default[:wof_pip][:server][:cache]      = 50_000
 default[:wof_pip][:server][:bind]       = 'localhost'
-default[:wof_pip][:server][:wait_time]  = 900 # how long to wait pip server to become responsive
 
 # wof clone
 #
