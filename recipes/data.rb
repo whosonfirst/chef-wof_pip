@@ -67,3 +67,8 @@ node[:wof_pip][:data][:metafiles].each do |f|
     )
   end
 end
+
+runit_service 'wof-pip-server' do
+  action :restart
+  only_if { ::File.exist?('/etc/service/wof-pip-server') }
+end
