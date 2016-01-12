@@ -37,4 +37,5 @@ default[:wof_pip][:data][:metafiles]      = %w(
   wof-neighborhood-latest.csv
   wof-region-latest.csv
 )
-default[:wof_pip][:data][:raw_url] = 'https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/meta'
+default[:wof_pip][:data][:source_url] = 'http://s3.amazonaws.com/whosonfirst.mapzen.com/data/'
+default[:wof_pip][:data][:meta_url]   = 'https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/meta'

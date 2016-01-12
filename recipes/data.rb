@@ -39,7 +39,7 @@ node[:wof_pip][:data][:metafiles].each do |f|
   remote_file "#{node[:wof_pip][:meta][:dir]}/#{f}" do
     action      :create
     backup      false
-    source      "#{node[:wof_pip][:data][:raw_url]}/#{f}"
+    source      "#{node[:wof_pip][:data][:meta_url]}/#{f}"
     owner       node[:wof_pip][:user][:name]
     retries     2
     retry_delay 60
@@ -54,6 +54,7 @@ node[:wof_pip][:data][:metafiles].each do |f|
     command <<-EOF
       ./bin/wof-clone-metafiles \
         -force-updates \
+        -source #{node[:wof_pip][:data][:source_url]} \
         -procs #{node[:wof_pip][:clone][:procs]} \
         -loglevel #{node[:wof_pip][:clone][:loglevel]} \
         -dest #{node[:wof_pip][:data][:dir]} \
