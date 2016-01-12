@@ -12,11 +12,12 @@ default[:wof_pip][:log][:dir]           = '/wof/logs'
 
 # wof-pip-server
 #
-default[:wof_pip][:server][:repository] = 'https://github.com/whosonfirst/go-whosonfirst-pip.git'
-default[:wof_pip][:server][:revision]   = 'master'
-default[:wof_pip][:server][:port]       = 9999
-default[:wof_pip][:server][:cache]      = 50_000
-default[:wof_pip][:server][:bind]       = 'localhost'
+default[:wof_pip][:server][:repository]     = 'https://github.com/whosonfirst/go-whosonfirst-pip.git'
+default[:wof_pip][:server][:revision]       = 'master'
+default[:wof_pip][:server][:port]           = 9999
+default[:wof_pip][:server][:cache_size]     = 10_000 # number of records to cache
+default[:wof_pip][:server][:cache_trigger]  = 2000 # number of file record to trigger caching
+default[:wof_pip][:server][:bind]           = 'localhost'
 
 # wof clone
 #
