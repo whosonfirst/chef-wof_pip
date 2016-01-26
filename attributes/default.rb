@@ -24,7 +24,7 @@ default[:wof_pip][:server][:bind]           = 'localhost'
 default[:wof_pip][:clone][:repository]  = 'https://github.com/whosonfirst/go-whosonfirst-clone.git'
 default[:wof_pip][:clone][:revision]    = 'master'
 default[:wof_pip][:clone][:loglevel]    = 'info'
-default[:wof_pip][:clone][:procs]       = node[:cpu][:total] * 10
+default[:wof_pip][:clone][:procs]       = node[:cpu][:total]
 
 # wof data
 #
@@ -40,3 +40,5 @@ default[:wof_pip][:data][:metafiles]      = %w(
 )
 default[:wof_pip][:data][:source_url] = 'http://s3.amazonaws.com/whosonfirst.mapzen.com/data/'
 default[:wof_pip][:data][:meta_url]   = 'https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/meta'
+
+default[:wof_pip][:data][:initial_run_complete_file] = '/etc/.wof_initial_data_run'

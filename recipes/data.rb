@@ -9,6 +9,10 @@
 
 include_recipe 'wof_pip::_setup'
 
+# increase proc count if this is the initial data pull
+#
+node.set[:wof_pip][:clone][:procs] = node[:cpu][:total] * 10 unless ::File.exist?(node[:wof_pip][:data][:initial_run_complete_file])
+
 # wof clone
 #
 git "#{node[:wof_pip][:apps][:dir]}/whosonfirst-clone" do
@@ -44,6 +48,7 @@ node[:wof_pip][:data][:metafiles].each do |f|
     retries     2
     retry_delay 60
     notifies    :run, "execute[pull wof data for #{f}]", :immediately
+    notifies    :restart, "runit_service[wof-pip-server]", :delayed
   end
 
   execute "pull wof data for #{f}" do
@@ -71,7 +76,8 @@ node[:wof_pip][:data][:metafiles].each do |f|
   end
 end
 
+file node[:wof_pip][:data][:initial_run_complete_file]
+
 runit_service 'wof-pip-server' do
-  action :restart
-  only_if { ::File.exist?('/etc/service/wof-pip-server') }
+  action :nothing
 end

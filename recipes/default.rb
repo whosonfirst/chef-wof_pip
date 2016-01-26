@@ -7,5 +7,5 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe 'wof_pip::data'
 include_recipe 'wof_pip::service'
+include_recipe 'wof_pip::data'
