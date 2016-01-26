@@ -43,9 +43,11 @@ node[:wof_pip][:data][:metafiles].each do |f|
     owner       node[:wof_pip][:user][:name]
     retries     2
     retry_delay 60
+    notifies    :run, "execute[pull wof data for #{f}]", :immediately
   end
 
   execute "pull wof data for #{f}" do
+    action      :nothing
     user        node[:wof_pip][:user][:name]
     cwd         "#{node[:wof_pip][:apps][:dir]}/whosonfirst-clone"
     retries     2
