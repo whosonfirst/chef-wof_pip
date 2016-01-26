@@ -35,7 +35,7 @@ default[:wof_pip][:data][:metafiles]      = %w(
   wof-locality-latest.csv
   wof-county-latest.csv
   wof-localadmin-latest.csv
-  wof-neighborhood-latest.csv
+  wof-neighbourhood-latest.csv
   wof-region-latest.csv
 )
 default[:wof_pip][:data][:source_url] = 'http://s3.amazonaws.com/whosonfirst.mapzen.com/data/'
