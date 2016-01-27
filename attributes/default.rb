@@ -18,9 +18,9 @@ default[:wof_pip][:server][:port]           = 9999
 default[:wof_pip][:server][:cache_size]     = 10_000 # number of records to cache
 default[:wof_pip][:server][:cache_trigger]  = 2000 # number of file record to trigger caching
 default[:wof_pip][:server][:bind]           = 'localhost'
-default[:wof_pip][:clone][:loglevel]        = 'info'
+default[:wof_pip][:server][:loglevel]       = 'info'
 
-# wof clone
+# wof clone: if using :files
 #
 default[:wof_pip][:clone][:repository]  = 'https://github.com/whosonfirst/go-whosonfirst-clone.git'
 default[:wof_pip][:clone][:revision]    = 'master'
@@ -30,7 +30,7 @@ default[:wof_pip][:clone][:procs]       = 10
 # wof data
 #
 default[:wof_pip][:data][:purge]          = false
-default[:wof_pip][:data][:source]         = :bundles
+default[:wof_pip][:data][:source]         = :bundles # or :files
 default[:wof_pip][:data][:revision]       = 'master'
 default[:wof_pip][:data][:clone_timeout]  = 14_400
 default[:wof_pip][:data][:metafiles]      = %w(
