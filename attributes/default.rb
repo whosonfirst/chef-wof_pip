@@ -28,17 +28,18 @@ default[:wof_pip][:clone][:procs]       = 10
 
 # wof data
 #
+default[:wof_pip][:data][:source]         = :bundles
 default[:wof_pip][:data][:revision]       = 'master'
 default[:wof_pip][:data][:clone_timeout]  = 14_400
 default[:wof_pip][:data][:metafiles]      = %w(
-  wof-country-latest.csv
-  wof-locality-latest.csv
-  wof-county-latest.csv
-  wof-localadmin-latest.csv
-  wof-neighbourhood-latest.csv
-  wof-region-latest.csv
+  wof-country-latest
+  wof-locality-latest
+  wof-county-latest
+  wof-localadmin-latest
+  wof-neighbourhood-latest
+  wof-region-latest
 )
-default[:wof_pip][:data][:source_url] = 'http://s3.amazonaws.com/whosonfirst.mapzen.com/data/'
+default[:wof_pip][:data][:source_url] = 'http://s3.amazonaws.com/whosonfirst.mapzen.com'
 default[:wof_pip][:data][:meta_url]   = 'https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/meta'
 
 default[:wof_pip][:data][:initial_run_complete_file] = '/etc/.wof_initial_data_run'
