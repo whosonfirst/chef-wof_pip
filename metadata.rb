@@ -4,7 +4,7 @@ maintainer_email 'grant@mapzen.com'
 license          'All rights reserved'
 description      'Installs/Configures wof_pip'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.2.1'
+version          '0.3.0'
 
 %w(
   apt
