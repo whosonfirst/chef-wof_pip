@@ -11,7 +11,7 @@ include_recipe 'wof_pip::_setup'
 
 # increase proc count if this is the initial data pull
 #
-node.set[:wof_pip][:clone][:procs] = node[:cpu][:total] * 4 unless ::File.exist?(node[:wof_pip][:data][:initial_run_complete_file])
+node.set[:wof_pip][:clone][:procs] = 25 unless ::File.exist?(node[:wof_pip][:data][:initial_run_complete_file])
 
 # wof clone
 #

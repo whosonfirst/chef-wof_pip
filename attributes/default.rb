@@ -24,7 +24,7 @@ default[:wof_pip][:server][:bind]           = 'localhost'
 default[:wof_pip][:clone][:repository]  = 'https://github.com/whosonfirst/go-whosonfirst-clone.git'
 default[:wof_pip][:clone][:revision]    = 'master'
 default[:wof_pip][:clone][:loglevel]    = 'info'
-default[:wof_pip][:clone][:procs]       = node[:cpu][:total] * 2
+default[:wof_pip][:clone][:procs]       = 10
 
 # wof data
 #
