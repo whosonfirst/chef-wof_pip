@@ -18,6 +18,7 @@ default[:wof_pip][:server][:port]           = 9999
 default[:wof_pip][:server][:cache_size]     = 10_000 # number of records to cache
 default[:wof_pip][:server][:cache_trigger]  = 2000 # number of file record to trigger caching
 default[:wof_pip][:server][:bind]           = 'localhost'
+default[:wof_pip][:clone][:loglevel]        = 'info'
 
 # wof clone
 #
