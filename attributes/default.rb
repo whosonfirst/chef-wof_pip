@@ -28,6 +28,7 @@ default[:wof_pip][:clone][:procs]       = 10
 
 # wof data
 #
+default[:wof_pip][:data][:purge]          = false
 default[:wof_pip][:data][:source]         = :bundles
 default[:wof_pip][:data][:revision]       = 'master'
 default[:wof_pip][:data][:clone_timeout]  = 14_400

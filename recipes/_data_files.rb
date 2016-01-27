@@ -11,6 +11,16 @@
 #
 node.set[:wof_pip][:clone][:procs] = 25 unless ::File.exist?(node[:wof_pip][:data][:initial_run_complete_file])
 
+# purge?
+execute 'purge data and meta' do
+  user        node[:wof_pip][:user][:name]
+  cwd         node[:wof_pip][:data][:dir]
+  command <<-EOF
+    rm -rf #{node[:wof_pip][:meta][:dir]}/* && rm -rf #{node[:wof_pip][:data][:dir]}/*
+  EOF
+  only_if { node[:wof_pip][:data][:purge] == true }
+end
+
 # wof clone
 #
 git "#{node[:wof_pip][:apps][:dir]}/whosonfirst-clone" do
