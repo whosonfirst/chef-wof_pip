@@ -6,6 +6,7 @@ exec 2>&1
 exec chpst -u <%= node[:wof_pip][:user][:name] %> -e /etc/sv/wof-pip-server/env \
 ./bin/wof-pip-server \
   -strict \
+  -verbose \
   -host <%= node[:wof_pip][:server][:bind] %> \
   -port <%= node[:wof_pip][:server][:port] %> \
   -cache_trigger <%= node[:wof_pip][:server][:cache_trigger] %> \
