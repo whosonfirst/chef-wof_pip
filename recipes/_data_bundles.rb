@@ -10,7 +10,6 @@
 # purge?
 execute 'purge data and meta' do
   user        node[:wof_pip][:user][:name]
-  cwd         node[:wof_pip][:data][:dir]
   command <<-EOF
     rm -rf #{node[:wof_pip][:meta][:dir]}/* && rm -rf #{node[:wof_pip][:data][:dir]}/*
   EOF
