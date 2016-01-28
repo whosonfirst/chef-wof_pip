@@ -36,7 +36,7 @@ node[:wof_pip][:data][:metafiles].each do |f|
     retries     2
     retry_delay 60
     command <<-EOF
-      wget --quiet -O #{f}.tar.bz2 #{node[:wof_pip][:data][:source_url]}/bundles/#{f.split('-latest').first}-bundle.tar.bz2
+      wget --quiet -O #{f}.tar.bz2 #{node[:wof_pip][:data][:source_url]}/bundles/#{f}-bundle.tar.bz2
     EOF
   end
 
