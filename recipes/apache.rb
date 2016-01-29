@@ -42,4 +42,6 @@ web_app 'wof-pip-proxy' do
   max_age           node[:wof_pip][:apache][:max_age]
 end
 
-apache_site 'wof-pip-proxy'
+apache_site 'wof-pip-proxy' do
+  action :enable
+end
