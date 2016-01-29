@@ -8,4 +8,5 @@
 #
 
 include_recipe 'wof_pip::service'
+include_recipe 'wof_pip::apache' if node[:wof_pip][:apache][:include] == true
 include_recipe 'wof_pip::data'
