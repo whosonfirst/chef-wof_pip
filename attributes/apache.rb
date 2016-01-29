@@ -14,6 +14,6 @@ default[:wof_pip][:apache][:requesttimeout]     = 3
 default[:wof_pip][:apache][:base_uri]           = '/'
 default[:wof_pip][:apache][:max_age]            = 14_400
 
-default[:apache][:listen_ports]                 = ["#{node[:wof_pip][:apache][:port]}"]
-default[:apache][:keepalive]                    = 'On'
-default[:apache][:keepaliverequests]            = 0
+override[:apache][:listen_ports]                = ["#{node[:wof_pip][:apache][:port]}"]
+override[:apache][:keepalive]                   = 'On'
+override[:apache][:keepaliverequests]           = 0
