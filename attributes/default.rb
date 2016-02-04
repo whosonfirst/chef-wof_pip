@@ -41,6 +41,9 @@ default[:wof_pip][:data][:metafiles]      = %w(
   wof-localadmin-latest
   wof-neighbourhood-latest
   wof-region-latest
+  wof-dependency-latest
+  wof-macrocounty-latest
+  wof-macroregion-latest
 )
 default[:wof_pip][:data][:source_url] = 'http://s3.amazonaws.com/whosonfirst.mapzen.com'
 default[:wof_pip][:data][:meta_url]   = 'https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/meta'
