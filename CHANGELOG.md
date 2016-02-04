@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.4.1
+-----
+* more data
+
 0.4.0
 -----
 * include apache proxy (mainly for the access log)
