@@ -41,7 +41,7 @@ end
 include_recipe 'runit::default'
 
 runit_service 'wof-pip-server' do
-  action          :create
+  action          :enable
   finish          false
   log             true
   default_logger  true
