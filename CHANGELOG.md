@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.5.0
+-----
+* remove support for file type download
+
 0.4.2
 -----
 * bug fix for data only runs
