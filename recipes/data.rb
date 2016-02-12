@@ -53,3 +53,7 @@ node[:wof_pip][:data][:metafiles].each do |f|
     EOF
   end
 end
+
+runit_service 'wof-pip-server' do
+  action :enable
+end
