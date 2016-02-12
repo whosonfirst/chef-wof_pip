@@ -32,7 +32,7 @@ execute 'compile wof server' do
     'HOME'    => node[:wof_pip][:user][:home],
     'PATH'    => '/bin:/usr/bin:/sbin:/usr/bin:/usr/local/go/bin:/opt/go/bin',
     'GOBIN'   => '/opt/go/bin',
-    'GOPATH'  => "#{node[:wof_pip][:apps][:dir]}/whosonfirst-clone"
+    'GOPATH'  => "#{node[:wof_pip][:apps][:dir]}/wof-pip-server"
   )
 end
 
