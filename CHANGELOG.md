@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.4.2
+-----
+* bug fix for data only runs
+
 0.4.1
 -----
 * more data
