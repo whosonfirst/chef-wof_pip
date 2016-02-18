@@ -1,6 +1,6 @@
 # setup
 #
-default[:go][:version] = 1.5
+default[:go][:version] = 1.6
 
 default[:wof_pip][:user][:name]         = 'wof'
 default[:wof_pip][:user][:home]         = '/home/wof'

@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.6.0
+-----
+* golang to 1.6
+
 0.5.0
 -----
 * remove support for file type download
