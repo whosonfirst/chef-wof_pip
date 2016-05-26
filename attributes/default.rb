@@ -27,16 +27,19 @@ default[:wof_pip][:data][:purge]          = false
 default[:wof_pip][:data][:revision]       = 'master'
 default[:wof_pip][:data][:clone_timeout]  = 14_400
 default[:wof_pip][:data][:metafiles]      = %w(
+  wof-borough-latest
+  wof-campus-latest
   wof-country-latest
-  wof-locality-latest
   wof-county-latest
+  wof-dependency-latest
+  wof-disputed-latest
   wof-localadmin-latest
+  wof-locality-latest
+  wof-macrocounty-latest
+  wof-macroregion-latest
   wof-microhood-latest
   wof-neighbourhood-latest
   wof-region-latest
-  wof-dependency-latest
-  wof-macrocounty-latest
-  wof-macroregion-latest
 )
 default[:wof_pip][:data][:source_url] = 'http://s3.amazonaws.com/whosonfirst.mapzen.com'
 default[:wof_pip][:data][:meta_url]   = 'https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/meta'
