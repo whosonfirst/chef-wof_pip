@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.6.5
+-----
+* update to include borough,campus,disputed
+
 0.6.0
 -----
 * golang to 1.6
