@@ -4,6 +4,7 @@ CHANGELOG
 0.7.0
 -----
 * apache listen attribute update for latest cookbook
+* build is now `make build`, not `make deps && make bin`
 
 0.6.5
 -----
