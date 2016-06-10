@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+0.7.0
+-----
+* apache listen attribute update for latest cookbook
+
 0.6.5
 -----
 * update to include borough,campus,disputed
