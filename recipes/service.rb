@@ -25,7 +25,7 @@ execute 'compile wof server' do
   action      :nothing
   user        node[:wof_pip][:user][:name]
   cwd         "#{node[:wof_pip][:apps][:dir]}/wof-pip-server"
-  command     'make deps && make bin'
+  command     'make build'
   retries     2
   retry_delay 10
   environment(
