@@ -36,6 +36,7 @@ default[:wof_pip][:data][:metafiles]      = %w(
   wof-localadmin-latest
   wof-locality-latest
   wof-macrocounty-latest
+  wof-macrohood-latest
   wof-macroregion-latest
   wof-microhood-latest
   wof-neighbourhood-latest
