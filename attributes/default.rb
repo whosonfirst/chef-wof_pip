@@ -40,7 +40,12 @@ default[:wof_pip][:data][:metafiles]      = %w(
   wof-macroregion-latest
   wof-microhood-latest
   wof-neighbourhood-latest
+  wof-postalcode-us-latest
   wof-region-latest
 )
 default[:wof_pip][:data][:source_url] = 'http://s3.amazonaws.com/whosonfirst.mapzen.com'
-default[:wof_pip][:data][:meta_url]   = 'https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/meta'
+default[:wof_pip][:data][:meta_url]   = 'https://s3.amazonaws.com/whosonfirst.mapzen.com/bundles'
+
+# this is still here in case the URL above doesn't work - it is necessary for the addition of
+# postalcodes in default[:wof_pip][:data][:metafiles] above (20170125/thisisaaronland)
+# default[:wof_pip][:data][:meta_url]  = 'https://raw.githubusercontent.com/whosonfirst/whosonfirst-data/master/meta'
