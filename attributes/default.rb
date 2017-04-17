@@ -41,6 +41,8 @@ default[:wof_pip][:data][:metafiles]      = %w(
   wof-macroregion-latest
   wof-microhood-latest
   wof-neighbourhood-latest
+  wof-postalcode-ca-latest
+  wof-postalcode-au-latest
   wof-postalcode-us-latest
   wof-region-latest
 )
