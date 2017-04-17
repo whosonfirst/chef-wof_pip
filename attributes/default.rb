@@ -33,6 +33,7 @@ default[:wof_pip][:data][:metafiles]      = %w(
   wof-county-latest
   wof-dependency-latest
   wof-disputed-latest
+  wof-intersection-us-ny
   wof-localadmin-latest
   wof-locality-latest
   wof-macrocounty-latest
