@@ -13,7 +13,7 @@ default[:wof_pip][:log][:dir]           = '/wof/logs'
 # wof-pip-server
 #
 default[:wof_pip][:server][:repository]     = 'https://github.com/whosonfirst/go-whosonfirst-pip.git'
-default[:wof_pip][:server][:revision]       = 'master'
+default[:wof_pip][:server][:revision]       = 'geojson-v2'
 default[:wof_pip][:server][:port]           = 9998
 default[:wof_pip][:server][:cache_all]      = true    # if true, ignores cache_size/cache_trigger
 default[:wof_pip][:server][:cache_size]     = 10_000  # number of records to cache
