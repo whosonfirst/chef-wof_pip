@@ -5,7 +5,6 @@ exec 2>&1
 
 exec chpst -u <%= node[:wof_pip][:user][:name] %> -e /etc/sv/wof-pip-server/env \
 ./bin/wof-pip-server \
-  -loglevel <%= node[:wof_pip][:server][:loglevel] %> \
   -host <%= node[:wof_pip][:server][:bind] %> \
   -port <%= node[:wof_pip][:server][:port] %> \
 <% if node[:wof_pip][:server][:cache_all] == true -%>
