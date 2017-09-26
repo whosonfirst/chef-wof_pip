@@ -8,9 +8,12 @@ exec chpst -u <%= node[:wof_pip][:user][:name] %> -e /etc/sv/wof-pip-server/env 
   -host <%= node[:wof_pip][:server][:bind] %> \
   -port <%= node[:wof_pip][:server][:port] %> \
 <% if node[:wof_pip][:server][:cache_all] == true -%>
-  -lru-cache-size 0 \
+  -cache-all \
 <% else -%>
+  -cache failover
+  -failover-cache lru
   -lru-cache_trigger <%= node[:wof_pip][:server][:cache_trigger] %> \
   -lru-cache_size <%= node[:wof_pip][:server][:cache_size] %> \
+  -source-cache-root <%= node[:wof_pip][:data][:dir] %> \
 <% end -%>
   -mode directory <%= node[:wof_pip][:data][:dir] %>
