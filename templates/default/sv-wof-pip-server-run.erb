@@ -6,12 +6,12 @@ exec 2>&1
 exec chpst -u <%= node[:wof_pip][:user][:name] %> -e /etc/sv/wof-pip-server/env \
 ./bin/wof-pip-server \
   -host <%= node[:wof_pip][:server][:bind] %> \
-  -port <%= node[:wof_pip][:server][:port] %> \  
+  -port <%= node[:wof_pip][:server][:port] %> \
 <% if node[:wof_pip][:server][:cache_all] == true -%>
   -cache-all \
 <% else -%>
-  -cache failover
-  -failover-cache lru
+  -cache failover \
+  -failover-cache lru \
   -lru-cache_trigger <%= node[:wof_pip][:server][:cache_trigger] %> \
   -lru-cache_size <%= node[:wof_pip][:server][:cache_size] %> \
   -source-cache-root <%= node[:wof_pip][:data][:dir] %> \
@@ -20,6 +20,6 @@ exec chpst -u <%= node[:wof_pip][:user][:name] %> -e /etc/sv/wof-pip-server/env 
  -polylines -polylines-max-coords <%= node[:wof_pip][:server][:polylines_max_coords] %> \
 <% end %>
 <% if node[:wof_pip][:server][:candidates] == true -%>
- -candidates \ 
+ -candidates \
 <% end %>
   -mode directory <%= node[:wof_pip][:data][:dir] %>
