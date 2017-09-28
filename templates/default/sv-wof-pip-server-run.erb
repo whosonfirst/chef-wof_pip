@@ -17,7 +17,7 @@ exec chpst -u <%= node[:wof_pip][:user][:name] %> -e /etc/sv/wof-pip-server/env 
   -source-cache-root <%= node[:wof_pip][:data][:dir] %> \
   <% end -%>
 <% if node[:wof_pip][:server][:polylines] == true -%>
- -polylines -polylines-max-coords <%= node[:wof_pip][:data][:polylines_max_coords] %> \
+ -polylines -polylines-max-coords <%= node[:wof_pip][:server][:polylines_max_coords] %> \
 <% end %>
 <% if node[:wof_pip][:server][:candidates] == true -%>
  -candidates \ 
