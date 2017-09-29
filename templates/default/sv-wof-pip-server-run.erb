@@ -5,17 +5,21 @@ exec 2>&1
 
 exec chpst -u <%= node[:wof_pip][:user][:name] %> -e /etc/sv/wof-pip-server/env \
 ./bin/wof-pip-server \
-  -strict \
-  -loglevel <%= node[:wof_pip][:server][:loglevel] %> \
   -host <%= node[:wof_pip][:server][:bind] %> \
   -port <%= node[:wof_pip][:server][:port] %> \
 <% if node[:wof_pip][:server][:cache_all] == true -%>
-  -cache_all \
+  -cache-all \
 <% else -%>
-  -cache_trigger <%= node[:wof_pip][:server][:cache_trigger] %> \
-  -cache_size <%= node[:wof_pip][:server][:cache_size] %> \
-<% end -%>
-  -data <%= node[:wof_pip][:data][:dir] %> \
-  <% node[:wof_pip][:data][:metafiles].each do |file| -%>
-    <%= node[:wof_pip][:meta][:dir] %>/<%= file %>.csv <%= '\\' unless file == node[:wof_pip][:data][:metafiles].last %>
+  -cache failover \
+  -failover-cache lru \
+  -lru-cache_trigger <%= node[:wof_pip][:server][:cache_trigger] %> \
+  -lru-cache_size <%= node[:wof_pip][:server][:cache_size] %> \
+  -source-cache-root <%= node[:wof_pip][:data][:dir] %> \
   <% end -%>
+<% if node[:wof_pip][:server][:polylines] == true -%>
+ -polylines -polylines-max-coords <%= node[:wof_pip][:server][:polylines_max_coords] %> \
+<% end %>
+<% if node[:wof_pip][:server][:candidates] == true -%>
+ -candidates \
+<% end %>
+  -mode directory <%= node[:wof_pip][:data][:dir] %>

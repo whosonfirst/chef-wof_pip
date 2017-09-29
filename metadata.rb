@@ -9,7 +9,6 @@ version          '0.7.0'
 %w(
   apt
   apache2
-  golang
   user
   runit
   ulimit
@@ -21,3 +20,4 @@ end
   supports os
 end
 
+depends 'whosonfirst_common', '0.0.1'

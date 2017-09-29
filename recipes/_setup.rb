@@ -12,7 +12,7 @@ include_recipe 'apt::default'
 package 'git'
 package 'build-essential'
 
-include_recipe 'golang::default'
+include_recipe "whosonfirst_common::setup_golang"
 
 user_account node[:wof_pip][:user][:name] do
   manage_home   true
