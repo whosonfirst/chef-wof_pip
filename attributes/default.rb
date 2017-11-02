@@ -13,7 +13,7 @@ default[:wof_pip][:log][:dir]           = '/wof/logs'
 # wof-pip-server
 #
 default[:wof_pip][:server][:repository]     = 'https://github.com/whosonfirst/go-whosonfirst-pip-v2.git'
-default[:wof_pip][:server][:revision]       = '0.9.0'
+default[:wof_pip][:server][:revision]       = '0.9.1'
 default[:wof_pip][:server][:port]           = 9998
 default[:wof_pip][:server][:polylines]      = true
 default[:wof_pip][:server][:polylines_max_coords] = 100
